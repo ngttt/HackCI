@@ -1,13 +1,14 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import SignInSignUp from "./SignInSignUp";
+
+import SignInSignUp from "./components/auth/SignInSignUp";
+import "./index.css";
+
 import List from "./components/List";
 
 function App() {
   return (
     <div className="App">
-      {/* <SignInSignUp/> */}
+      <SignInSignUp />
       <List genre="Phim mới nhất" />
       <List genre="Phim có rating cao nhất" />
     </div>
