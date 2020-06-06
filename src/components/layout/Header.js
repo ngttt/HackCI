@@ -28,8 +28,6 @@ export default class Header extends Component {
                     {this.renderAuth()}
                 </div>
                 <div className="header-content">
-                    <h1>See what's next</h1>
-                    <h2>WATCH ANYWHERE. CANCEL ANYTIME</h2>
                 </div>
             </div>
         );
