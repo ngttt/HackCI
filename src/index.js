@@ -5,6 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import fbConfig from "./config/fbConfig";
 import firebase from "firebase";
+import Detail from "./components/detail/Detail";
 
 firebase.initializeApp(fbConfig);
 
@@ -12,7 +13,7 @@ firebase.firestore().enablePersistence();
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <App/>
     </React.StrictMode>,
     document.getElementById("root")
 );

@@ -138,6 +138,12 @@ code {
   display: inline-block;
   border-bottom: 1.5px solid #225e62;
   padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.FormField__Link:hover {
+  color: #66dac7;
+  border-bottom: 1.5px solid #66dac7;
 }
 
 .FormField__CheckboxLabel {
@@ -201,6 +207,7 @@ a {
   transition: background 0.2s ease-in;
   color: white;
   text-decoration: none;
+  border: 0px;
 }
 
 .Login-btn:hover {
@@ -255,6 +262,54 @@ a {
   line-height: 1.1em;
 }
 /* css cho phần header */
+
+/* The Modal (background) */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  float: right;
+  font-size: 28px;
+  font-weight: 700;
+  border: 0px;
+  background: #ffffff;
+  font-size: 2em;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  cursor: pointer;
+}
+
+.close-button-container {
+  text-align: end;
+}
+
+.username {
+  color: white;
+  font-weight: 800;
+  font-size: 1.5em;
+}
 
 .App {
   overflow: hidden;
@@ -423,6 +478,165 @@ div.ant-row {
 
 .nav-bar ul {
   display: flex;
+}
+
+.nav-logo {
+  display: flex;
+  background-color: black;
+}
+
+.nav-logo h6 {
+  color: white;
+}
+
+.list-nav {
+  list-style: none;
+  padding-left: 40px;
+}
+
+.drop-list-item {
+  text-decoration: none;
+  color: white;
+}
+
+.list-item:focus {
+  color: blanchedalmond;
+}
+
+.search {
+  margin-left: 730px;
+  margin-top: 15px;
+  width: 170px;
+  height: 30px;
+  background-color: black;
+  border: none;
+  border-bottom: solid white 1px;
+}
+/* css cho phần details */
+.rmdb-movieinfo {
+  background-size: cover !important;
+  background-position: center !important;
+  width: 100%;
+  height: 600px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  animation: animateMovieinfo 1s;
+}
+
+@keyframes animateMovieinfo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.rmdb-movieinfo-content {
+  max-width: 1280px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: rgb(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.rmdb-movieinfo-thumb {
+  width: 350px;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+}
+
+.rmdb-movieinfo-text {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: auto;
+  padding: 40px;
+  color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: absolute;
+  left: 360px;
+}
+
+.rmdb-movieinfo-text h1 {
+  font-family: "Abel", sans-serif;
+  font-size: 48px;
+  margin: 0;
+}
+
+.rmdb-movieinfo-text h3 {
+  font-size: 16px;
+  line-height: 0;
+  margin-top: 30px;
+}
+
+.rmdb-movieinfo-text p {
+  font-family: "Abel", sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.rmdb-rating {
+  width: 250px;
+  height: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.rmdb-score {
+  position: absolute;
+  margin: 0;
+  right: 0px;
+  top: -3px;
+}
+
+.rmdb-director {
+  margin: 0;
+}
+
+.fa-film {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  color: #fff;
+}
+
+meter::-webkit-meter-bar {
+  background: #fff;
+  width: 200px;
+}
+meter::-webkit-meter-optimum-value {
+  background: linear-gradient(to bottom, #16d47b);
+}
+meter::-webkit-meter-suboptimum-value {
+  background: linear-gradient(to bottom, #fbb450);
+}
+meter::-webkit-meter-even-less-good-value {
+  background: linear-gradient(to bottom, #ee5f5b);
+}
+
+.rmdb-movieinfo-actor .image-thumbnail img {
+  width: 60%;
+}
+
+.rmdb-movieinfo-actor {
+  margin-left: 100px;
+}
+
+.rmdb-movieinfo-actor h2 {
+  margin-left: 20px;
+}
+/* css cho phần details */
+
+.nav-bar ul {
+  display: flex;
+}
+
+a.nav-link {
+  padding: 0;
 }
 
 .nav-logo {

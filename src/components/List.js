@@ -35,6 +35,14 @@ export default class List extends Component {
     }
   };
 
+  // getActionMovie = async () =>{
+  //   try {
+  //       const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${themovie_api}&language=vi-VN`;
+
+
+  //   }
+  // }
+
   getMoviesRating = async () => {
     try {
       const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${themovie_api}&language=vi-VN`;
