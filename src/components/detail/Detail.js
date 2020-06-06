@@ -1,68 +1,75 @@
-import React from "react";
-import PropTypes from "prop-types";
-import FontAwesome from "react-fontawesome";
+import React, { useState, useEffect } from "react";
 import Actor from "../../assets/poster.jpg";
 import "../../index.css";
+import Axios from "axios";
+import { endpoint } from "../../config/apiConfig";
 
-const MovieInfo = ({ movie, directors }) => (
-  <div className="rmdb-movieinfo">
-    <div className="rmdb-movieinfo-content">
-      <div className="rmdb-movieinfo-thumb">ảnh film</div>
-      <div className="rmdb-movieinfo-text">
-        <h1>Thưa mẹ con đi</h1>
-        <h2>Năm sản xuất:0000</h2>
-        <h2>Thể loại:tình cảm, gia đình, nhân văn, xã hội</h2>
-        <h2> Nội dung</h2>
-        <p>
-          noi dung cua phim noi dung cua phim noi dung cua phim noi dung cua
-          phim noi dung cua phim noi dung cua phim noi dung cua phim noi dung
-          cua phim noi dung cua phim noi dung cua phim noi dung cua phim noi
-          dung cua phim noi dung cua phim noi dung cua phim noi dung cua phim
-          noi dung cua phim noi dung cua phim
-        </p>
-        <h2>Đánh giá</h2>
-        <div className="rmdb-rating">
-          <meter min="0" max="100" optimum="100" low="40" high="70"></meter>
-          <p className="rmdb-score">7.8</p>
+const DetailPage = ({ match }) => {
+    const [movieInfo, setMovieInfo] = useState({});
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await Axios.get(endpoint.movieId(match.params.id));
+                const { data } = res;
+
+                console.log(data);
+
+                setMovieInfo(data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        fetchData();
+    }, [match.params.id]);
+
+    if (!movieInfo.backdrop_path) return <div></div>;
+    return (
+        <div className="rmdb-movieinfo">
+            <div className="rmdb-movieinfo-content">
+                <div className="rmdb-movieinfo-thumb">
+                    <img src={endpoint.backdrop(movieInfo.backdrop_path)} />
+                </div>
+                <div className="rmdb-movieinfo-text color-white">
+                    <h1 className="color-white"> {movieInfo.title} </h1>
+                    <h6 className="color-white">{movieInfo.release_date} </h6>
+                    <p className="color-white">{movieInfo.overview}</p>
+                    <div className="rmdb-rating color-white">
+                        {movieInfo.vote_average}
+                    </div>
+                </div>
+            </div>
+
+            <div className="rmdb-movieinfo-actor color-white">
+                <br></br> <h2>Diễn viên</h2> <br></br>
+                <div className="row">
+                    <div className="col-sm-3">
+                        <div className="image-thumbnail">
+                            <img src={Actor} />
+                        </div>
+                    </div>
+
+                    <div className="col-sm-3">
+                        <div className="image-thumbnail">
+                            <img src={Actor} />
+                        </div>
+                    </div>
+
+                    <div className="col-sm-3">
+                        <div className="image-thumbnail">
+                            <img src={Actor} />
+                        </div>
+                    </div>
+
+                    <div className="col-sm-3">
+                        <div className="image-thumbnail">
+                            <img src={Actor} />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <FontAwesome className="fa-film" name="film" size="5x" />
-    </div>
-
-    <div className="rmdb-movieinfo-actor">
-      <br></br> <h2>Diễn viên</h2> <br></br>
-      <div className="row">
-        <div className="col-sm-3">
-          <div className="image-thumbnail">
-            <img src={Actor} />
-          </div>
-        </div>
-
-        <div className="col-sm-3">
-          <div className="image-thumbnail">
-            <img src={Actor} />
-          </div>
-        </div>
-
-        <div className="col-sm-3">
-          <div className="image-thumbnail">
-            <img src={Actor} />
-          </div>
-        </div>
-
-        <div className="col-sm-3">
-          <div className="image-thumbnail">
-            <img src={Actor} />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-MovieInfo.propTypes = {
-  movie: PropTypes.object,
-  directors: PropTypes.array,
+    );
 };
 
-export default MovieInfo;
+export default DetailPage;
