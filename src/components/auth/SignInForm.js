@@ -55,6 +55,7 @@ class SignInForm extends Component {
                 });
             } else {
                 this.props.setUser(res.user);
+                this.props.handleDisplay("none");
             }
         } else {
             this.setState({
@@ -105,7 +106,13 @@ class SignInForm extends Component {
                         <button className="FormField__Button mr-20">
                             Sign In
                         </button>
-                        <Link to="/" className="FormField__Link">
+                        <Link
+                            to="/"
+                            className="FormField__Link"
+                            onClick={() => {
+                                this.props.changeAuthForm(true);
+                            }}
+                        >
                             Create an account
                         </Link>
                     </div>
