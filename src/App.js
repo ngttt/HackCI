@@ -1,14 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import SignInSignUp from './SignInSignUp';
+import React from "react";
+import SignInSignUp from "./components/auth/SignInSignUp";
+import "./index.css";
 
 function App() {
-  return (
-    <div className="App">
-        <SignInSignUp/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <SignInSignUp />
+        </div>
+    );
 }
 
 export default App;
