@@ -10,43 +10,42 @@ import "react-bootstrap";
 const { Meta } = Card;
 
 function Movie({ movies, match }) {
-    console.log(movies);
-    return (
-        <div id="container">
-            <Divider
-                orientation="left"
-                style={{ color: "#333", fontWeight: "normal" }}
-            >
-                <h2 style={{ color: "white" }}> {match.params.genre} movie </h2>
-            </Divider>
-            <Row gutter={[24, 16]} justify="space-around" style={{ margin: 6 }}>
-                {movies.map((movie) => {
-                    return (
-                        <Col className="gutter-row" span={6} key={movie.id}>
-                            <div>
-                                hello
-                                <Card
-                                    hoverable
-                                    cover={
-                                        <img
-                                            alt="example"
-                                            src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${movie.backdrop_path}`}
-                                        />
-                                    }
-                                >
-                                    <Meta title={movie.title} />
-                                    <div style={{ marginTop: 6 }}>
-                                        <StarOutlined twoToneColor="#eb2f96" />
-                                        <span> {movie.vote_average} </span>
-                                    </div>
-                                </Card>
-                            </div>
-                        </Col>
-                    );
-                })}
-            </Row>
-        </div>
-    );
+  console.log(movies);
+  return (
+    <div id="container">
+      <Divider
+        orientation="left"
+        style={{ color: "#333", fontWeight: "normal" }}
+      >
+        <h2 style={{ color: "white" }}> {match.params.genre} movie </h2>
+      </Divider>
+      <Row gutter={[24, 16]} justify="space-around" style={{ margin: 6 }}>
+        {movies.map((movie) => {
+          return (
+            <Col className="gutter-row" span={6} key={movie.id}>
+              <div>
+                <Card
+                  hoverable
+                  cover={
+                    <img
+                      alt="example"
+                      src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${movie.backdrop_path}`}
+                    />
+                  }
+                >
+                  <Meta title={movie.title} />
+                  <div style={{ marginTop: 6 }}>
+                    <StarOutlined twoToneColor="#eb2f96" />
+                    <span> {movie.vote_average} </span>
+                  </div>
+                </Card>
+              </div>
+            </Col>
+          );
+        })}
+      </Row>
+    </div>
+  );
 }
 
 export default withRouter(Movie);
