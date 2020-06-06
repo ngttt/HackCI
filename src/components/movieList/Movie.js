@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import "antd/dist/antd.css";
 import { Row, Col, Divider } from "antd";
 import { StarOutlined } from "@ant-design/icons";
 import { Card } from "antd";
-import { Pagination } from "antd";
 import { withRouter } from "react-router-dom";
 import "react-bootstrap";
 import { endpoint } from "../../config/apiConfig";

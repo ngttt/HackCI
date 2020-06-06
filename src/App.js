@@ -4,6 +4,7 @@ import Header from "./components/layout/Header";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import NavigationBar from "./components/navbar/NavigationBar";
+import Footer from "./components/footer/Footer";
 import MovieList from "./components/movieList/MovieList";
 import DetailPage from "./components/detail/Detail";
 
