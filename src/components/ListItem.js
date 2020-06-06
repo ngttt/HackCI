@@ -17,7 +17,7 @@ export default class ListItem extends Component {
         const title = e.title;
         return (
           <React.Fragment>
-            <Col className="gutter-row" span={6}>
+            <Col className="gutter-row" span={this.props.spanNumber} >
               <div>
                 <Card hoverable cover={<img alt="example" src={urlImg} />}>
                   <Meta title={title} />
@@ -41,7 +41,7 @@ export default class ListItem extends Component {
           orientation="left"
           style={{ color: "#333", fontWeight: "normal", padding: 0 }}
         >
-          <h2>{this.props.genre_id}</h2>
+          <p>{this.props.genre_id}</p>
         </Divider>
         <Row gutter={[4, 6]} justify="space-around">
           {this.renderMovie()}

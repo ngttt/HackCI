@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ListItem from "./ListItem";
+import { Layout } from "antd";
+import { Row, Col, Divider, Table } from "antd";
 
 const themovie_api = "0a6d26d952bdd58d29ef7b7cb82a59db";
 export default class List extends Component {
@@ -43,8 +45,23 @@ export default class List extends Component {
 
   render() {
     return (
-      <div className="container">
-        <ListItem genre_id={this.props.genre} movies={this.state.listMovies} />
+      <div>
+        <div className="listItemCenter">
+          <div className="itemNewMovie">
+            <ListItem
+              genre_id="Phim mới nhất"
+              spanNumber={6}
+              movies={this.state.listMovies}
+            />
+          </div>
+          <div className="itemRatMovie">
+            <ListItem
+              spanNumber={12}
+              genre_id="Phim co rating nhieu nhat"
+              movies={this.state.moviesRating}
+            />
+          </div>
+        </div>
       </div>
     );
   }
