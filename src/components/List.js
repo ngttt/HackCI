@@ -43,9 +43,7 @@ export default class List extends Component {
 
   render() {
     return (
-      <div className="container">
-        <ListItem genre_id={this.props.genre} movies={this.state.listMovies} />
-      </div>
+      <ListItem genre_id={this.props.genre} movies={this.state.listMovies} />
     );
   }
 }
