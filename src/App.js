@@ -1,20 +1,35 @@
-import React from "react";
-
-import SignInSignUp from "./components/auth/SignInSignUp";
+import React, { Component } from "react";
 import "./index.css";
-import Header from "./components/layout/Header"
+import Header from "./components/layout/Header";
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./components/pages/Home";
 
-import List from "./components/List";
+class App extends Component {
+    constructor() {
+        super();
 
-function App() {
-  return (
-    <div className="App">
-      <Header/>
-      <SignInSignUp />
-      <List genre="Phim mới nhất" />
-      <List genre="Phim có rating cao nhất" />
-    </div>
-  );
+        this.state = {
+            user: {},
+        };
+    }
+
+    setUser = (userInfo) => {
+        this.setState({
+            user: userInfo,
+        });
+    };
+
+    render() {
+        return (
+            <BrowserRouter>
+                <div className="App">
+                    <Header user={this.state.user} />
+                    <Route exact path={["/", "/home"]} component={Home} />
+                    {/* <Route path="/detail/:id" component={Home} /> */}
+                </div>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;

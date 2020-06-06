@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter as Router, Route, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import SignUpForm from "./SignUpForm";
 import SignInForm from "./SignInForm";
 
@@ -46,8 +46,26 @@ class SignInSignUp extends Component {
                             </NavLink>
                         </div>
 
-                        <Route exact path="/" component={SignUpForm} />
-                        <Route path="/sign-in" component={SignInForm} />
+                        <Route
+                            exact
+                            path="/"
+                            render={(routeProps) => (
+                                <SignUpForm
+                                    {...routeProps}
+                                    setUser={this.props.setUser}
+                                />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/"
+                            render={(routeProps) => (
+                                <SignInForm
+                                    {...routeProps}
+                                    setUser={this.props.setUser}
+                                />
+                            )}
+                        />
                     </div>
                 </div>
             </Router>

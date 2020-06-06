@@ -200,6 +200,7 @@ a {
     transition: background 0.2s ease-in;
     color: white;
     text-decoration: none;
+    border: 0px;
 }
 
 .Login-btn:hover {

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { NavLink, Router } from "react-router-dom";
 import logo from "../../assets/logo-netflix.png";
 
 export default class Header extends Component {

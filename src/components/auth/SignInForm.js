@@ -53,6 +53,8 @@ class SignInForm extends Component {
                 this.setState({
                     error,
                 });
+            } else {
+                this.props.setUser(res.user);
             }
         } else {
             this.setState({
