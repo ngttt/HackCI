@@ -1,5 +1,5 @@
 import React from "react";
-
+import NavigationBar from "./components/navbar/NavigationBar";
 import SignInSignUp from "./components/auth/SignInSignUp";
 import "./index.css";
 import Header from "./components/layout/Header";
@@ -12,7 +12,8 @@ const { Footer, Content } = Layout;
 function App() {
   return (
     <div className="App">
-      <Header />
+      <NavigationBar/>
+      <Header/>
       <SignInSignUp />
       <div>
         <List />

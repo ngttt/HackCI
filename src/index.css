@@ -223,11 +223,11 @@ a {
 }
 
 .header-container {
-  width: 100vw;
-  height: 90vh;
-  position: relative;
-  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 7)),
-    url(./poster.jpg) no-repeat center center/cover;
+    width: 100vw;
+    height: 90vh;
+    position: relative;
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 7)),
+        url(./assets/poster.jpg) no-repeat center center/cover;
 }
 
 .header-container::after {
@@ -267,3 +267,127 @@ a {
 .itemRatMovie {
   width: 20%;
 }
+/* css cho nav */
+.App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  .App {
+      text-align: center;
+  }
+  
+  .App-logo {
+      height: 40vmin;
+      pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+      .App-logo {
+          animation: App-logo-spin infinite 20s linear;
+      }
+  }
+  
+  .App-header {
+      background-color: #282c34;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      color: white;
+  }
+  
+  .App-link {
+      color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+      from {
+          transform: rotate(0deg);
+      }
+      to {
+          transform: rotate(360deg);
+      }
+  }
+  
+  .list-container {
+      display: flex;
+      justify-content: center;
+  }
+  
+  .input-group {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+  }
+  
+  .input-group input {
+      /* border: 1px solid ; */
+      width: 150px;
+  }
+  
+  .App-header {
+    background-color: wh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .nav-bar ul {
+      display: flex;
+  }
+  
+  .nav-logo {
+      display: flex;
+      background-color: black;
+  }
+
+  .nav-logo h6 {
+      color: white;
+  }
+  
+  .list-nav {
+      list-style: none;
+      padding-left: 40px;
+  }
+  
+  .drop-list-item {
+      text-decoration: none;
+      color: white;
+  }
+  
+  .list-item:focus {
+      color: blanchedalmond;
+  }
+  
+  .search {
+      margin-left: 730px;
+      margin-top: 15px;
+      width: 170px;
+      height: 30px;
+      background-color: black;
+      border: none;
+      border-bottom: solid white 1px;
+  }
