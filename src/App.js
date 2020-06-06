@@ -52,6 +52,7 @@ class App extends Component {
                     />
                     <Route path="/movies/:genre" component={MovieList} />
                     {/* <Route path="/detail/:id" component={DetailPage} /> */}
+                    <MovieList />
                 </div>
             </BrowserRouter>
         );
