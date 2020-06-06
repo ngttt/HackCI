@@ -4,6 +4,7 @@ import { Rate, Card, Divider, Col } from "antd";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { StarOutlined } from "@ant-design/icons";
 
 const { Meta } = Card;
 

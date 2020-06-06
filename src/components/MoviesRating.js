@@ -39,17 +39,15 @@ export default class MoviesRating extends Component {
     };
     render() {
         return (
-            <React.Fragment>
+            <div className="center">
                 <Divider
                     orientation="left"
                     style={{ color: "#333", fontWeight: "normal", padding: 0 }}
                 >
-                    <p>{this.props.genre_id}</p>
+                    <h2 style={{ color: "#fff" }}>{this.props.genre_id}</h2>
                 </Divider>
-                <Row gutter={[4, 6]} justify="space-around">
-                    {this.renderMoviesRating()}
-                </Row>
-            </React.Fragment>
+                <Row gutter={[14, 12]}>{this.renderMoviesRating()}</Row>
+            </div>
         );
     }
 }
