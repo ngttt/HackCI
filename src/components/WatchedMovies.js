@@ -4,6 +4,7 @@ import { Rate, Card, Divider, Col } from "antd";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { StarOutlined } from "@ant-design/icons";
 
 const { Meta } = Card;
 
@@ -26,17 +27,10 @@ export default class WatchedMovies extends Component {
               >
                 <div className="content">
                   <Meta title={title} />
-                  <span>
-                    <Rate disabled defaultValue={1} style={{ zIndex: -999 }} />
-                  </span>
-                  <b style={{ marginLeft: "-20px", zIndex: 9999 }}>
-                    {e.vote_average}/10
+                  <i class="fas fa-heart"></i>
+                  <b style={{ marginLeft: 5, color: "#fff" }}>
+                    {e.vote_average}
                   </b>
-                  <br />
-                  <span>
-                    <b>Ngày khởi chiếu:</b> <br />
-                    <Meta title={e.release_date} />
-                  </span>
                 </div>
               </Card>
             </div>
@@ -86,7 +80,7 @@ export default class WatchedMovies extends Component {
             orientation="left"
             style={{ color: "#333", fontWeight: "normal", padding: 0 }}
           >
-            <p>{this.props.genre_id}</p>
+            <h2 style={{ color: "#fff" }}>{this.props.genre_id}</h2>
           </Divider>
           <Slider
             {...settings}

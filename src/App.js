@@ -12,12 +12,11 @@ const { Footer, Content } = Layout;
 function App() {
   return (
     <div className="App">
-     
-      <NavigationBar/>
-      <Header/>
+      <NavigationBar />
+      <Header />
       <SignInSignUp />
       <div>
-        <List genre="Phim đang chiếu"/>
+        <List genre="Phim đang chiếu" />
       </div>
     </div>
   );

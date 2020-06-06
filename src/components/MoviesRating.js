@@ -18,10 +18,18 @@ export default class MoviesRating extends Component {
             <Col className="gutter-row" span={this.props.spanNumber}>
               <div>
                 <Card hoverable cover={<img alt="example" src={urlImg} />}>
-                  <Meta title={title} />
-                  <div>
-                    <StarOutlined twoToneColor="#eb2f96" />
-                    <span>number</span>
+                  <div className="content">
+                    <Meta title={title} />
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <i class="fas fa-heart"></i>
+                      <b style={{ marginLeft: 5 }}>{e.vote_average}</b>
+                    </div>
                   </div>
                 </Card>
               </div>
@@ -33,17 +41,15 @@ export default class MoviesRating extends Component {
   };
   render() {
     return (
-      <React.Fragment>
+      <div className="center">
         <Divider
           orientation="left"
           style={{ color: "#333", fontWeight: "normal", padding: 0 }}
         >
-          <p>{this.props.genre_id}</p>
+          <h2 style={{ color: "#fff" }}>{this.props.genre_id}</h2>
         </Divider>
-        <Row gutter={[4, 6]} justify="space-around">
-          {this.renderMoviesRating()}
-        </Row>
-      </React.Fragment>
+        <Row gutter={[14, 12]}>{this.renderMoviesRating()}</Row>
+      </div>
     );
   }
 }
