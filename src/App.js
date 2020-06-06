@@ -28,17 +28,6 @@ class App extends Component {
     });
   };
 
-  // function App() {
-  //   return (
-  //     <div className="App">
-  //       <NavigationBar />
-  //       <Header />
-  //       <SignInSignUp />
-  //       <div>
-  //         <List genre="Phim đang chiếu" />
-  //       </div>
-  //     </div>
-  //   );
   render() {
     return (
       <BrowserRouter>
@@ -57,8 +46,6 @@ class App extends Component {
               />
             )}
           />
-          {/* <Route path="/movies/:genre" component={} /> */}
-          {/* <Route path="/detail/:id" component={DetailPage} /> */}
         </div>
       </BrowserRouter>
     );

@@ -662,6 +662,15 @@ a.nav-link {
   color: blanchedalmond;
 }
 
+div.dropdown {
+  display: flex;
+  align-items: center;
+}
+div.dropdown #basic-nav-dropdown {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
 .search {
   margin-left: 730px;
   margin-top: 15px;
