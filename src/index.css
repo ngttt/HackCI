@@ -227,7 +227,7 @@ a {
     height: 90vh;
     position: relative;
     background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 7)),
-        url(./components/image/poster.jpg) no-repeat center center/cover;
+        url(./assets/poster.jpg) no-repeat center center/cover;
 }
 
 .header-container::after {
