@@ -3,10 +3,15 @@ import "antd/dist/antd.css";
 import { Row, Col, Divider } from "antd";
 import { StarOutlined } from "@ant-design/icons";
 import { Card } from "antd";
+import { withRouter } from "react-router-dom";
 
 const { Meta } = Card;
 
-export default class MoviesRating extends Component {
+class MoviesRating extends Component {
+    changeRoute = (id) => {
+        this.props.history.push(`/detail/${id}`);
+    };
+
     renderMoviesRating = () => {
         if (this.props.moviesRating.results) {
             const { results } = this.props.moviesRating;
@@ -14,7 +19,7 @@ export default class MoviesRating extends Component {
                 const urlImg = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${e.poster_path}`;
                 const title = e.title;
                 return (
-                    <React.Fragment key={e.title}>
+                    <React.Fragment key={title}>
                         <Col
                             className="gutter-row"
                             span={this.props.spanNumber}
@@ -23,6 +28,9 @@ export default class MoviesRating extends Component {
                                 <Card
                                     hoverable
                                     cover={<img alt="example" src={urlImg} />}
+                                    onClick={() => {
+                                        this.changeRoute(e.id);
+                                    }}
                                 >
                                     <Meta title={title} />
                                     <div>
@@ -51,3 +59,5 @@ export default class MoviesRating extends Component {
         );
     }
 }
+
+export default withRouter(MoviesRating);

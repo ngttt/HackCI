@@ -6,11 +6,14 @@ import { Card } from "antd";
 import { Pagination } from "antd";
 import { withRouter } from "react-router-dom";
 import "react-bootstrap";
+import { endpoint } from "../../config/apiConfig";
 
 const { Meta } = Card;
 
-function Movie({ movies, match }) {
-    console.log(movies);
+function Movie({ movies, match, history }) {
+    const changeRoute = (id) => {
+        history.push(`/detail/${id}`);
+    };
     return (
         <div id="container">
             <Divider
@@ -30,9 +33,14 @@ function Movie({ movies, match }) {
                                     cover={
                                         <img
                                             alt="example"
-                                            src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${movie.backdrop_path}`}
+                                            src={endpoint.backdrop(
+                                                movie.backdrop_path
+                                            )}
                                         />
                                     }
+                                    onClick={() => {
+                                        changeRoute(movie.id);
+                                    }}
                                 >
                                     <Meta title={movie.title} />
                                     <div style={{ marginTop: 6 }}>

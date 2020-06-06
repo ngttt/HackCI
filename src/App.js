@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import NavigationBar from "./components/navbar/NavigationBar";
 import MovieList from "./components/movieList/MovieList";
+import DetailPage from "./components/detail/Detail";
 
 class App extends Component {
     constructor() {
@@ -50,7 +51,7 @@ class App extends Component {
                         )}
                     />
                     <Route path="/movies/:genre" component={MovieList} />
-                    {/* <Route path="/detail/:id" component={DetailPage} /> */}
+                    <Route path="/detail/:id" component={DetailPage} />
                 </div>
             </BrowserRouter>
         );
