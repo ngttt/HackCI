@@ -23,7 +23,6 @@ class App extends Component {
     };
 
     handleDisplay = (display) => {
-        console.log("hello");
         this.setState({
             display,
         });
@@ -52,7 +51,6 @@ class App extends Component {
                     />
                     <Route path="/movies/:genre" component={MovieList} />
                     {/* <Route path="/detail/:id" component={DetailPage} /> */}
-                    <MovieList />
                 </div>
             </BrowserRouter>
         );

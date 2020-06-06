@@ -7,7 +7,7 @@ import API_KEY from "../../config/apiConfig";
 function MovieList({ match }) {
     const [genreCode, setGenreCode] = useState(null);
     const [movies, setMovies] = useState([]);
-    console.log(movies);
+
     useEffect(() => {
         for (let genre of genreData) {
             if (genre.name.toLowerCase() === match.params.genre.toLowerCase()) {
@@ -28,14 +28,14 @@ function MovieList({ match }) {
                     data: { results },
                 } = res;
 
-                let movies = [];
+                let moviesData = [];
                 for (let movie of results) {
                     if (movie.genre_ids.includes(genreCode)) {
-                        movies.push(movie);
+                        moviesData.push(movie);
                     }
                 }
 
-                setMovies(movies);
+                setMovies(moviesData);
             } catch (err) {
                 console.log(err);
             }
@@ -46,7 +46,7 @@ function MovieList({ match }) {
     return (
         <div>
             Hello
-            <Movie />
+            <Movie movies={movies} />
         </div>
     );
 }
