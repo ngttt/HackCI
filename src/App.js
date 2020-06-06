@@ -47,7 +47,8 @@ class App extends Component {
                             />
                         )}
                     />
-                    {/* <Route path="/detail/:id" component={Home} /> */}
+                    {/* <Route path="/movies/:genre" component={} /> */}
+                    {/* <Route path="/detail/:id" component={DetailPage} /> */}
                 </div>
             </BrowserRouter>
         );
