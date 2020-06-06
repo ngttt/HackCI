@@ -1,13 +1,15 @@
-import React from 'react';
-import './App.css';
-import SignInSignUp from './SignInSignUp';
-import Header from './Header';
+import React from "react";
+import SignInSignUp from "./components/auth/SignInSignUp";
+import "./index.css";
+import Header from "./components/layout/Header"
+
 function App() {
-  return (
-    <div className="App">
-      <Header/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Header/>
+            <SignInSignUp />
+        </div>
+    );
 }
 
 export default App;
