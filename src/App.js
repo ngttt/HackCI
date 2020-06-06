@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
+=======
+
+import SignInSignUp from "./components/auth/SignInSignUp";
+>>>>>>> f813bcda163d177d1594daadd6b869a014d19edd
 import "./index.css";
 import Header from "./components/layout/Header";
 import { BrowserRouter, Route } from "react-router-dom";
@@ -13,6 +18,7 @@ class App extends Component {
         };
     }
 
+<<<<<<< HEAD
     setUser = (userInfo) => {
         this.setState({
             user: userInfo,
@@ -30,6 +36,31 @@ class App extends Component {
             </BrowserRouter>
         );
     }
+=======
+import List from "./components/List";
+import Modal from "./components/auth/Modal"
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = { display: "none"}
+  }
+  handleDisplay = (display) => {
+    this.setState({
+      display
+    })
+  }
+  render() {
+    return (
+      <div className="App">
+        <Header handleDisplay={this.handleDisplay} />
+        <Modal display={this.state.display} handleDisplay={this.handleDisplay} />
+        <List genre="Phim mới nhất" />
+        <List genre="Phim có rating cao nhất" />
+      </div>
+    ); 
+  }
+>>>>>>> f813bcda163d177d1594daadd6b869a014d19edd
 }
 
 export default App;

@@ -7,7 +7,14 @@ export default class Header extends Component {
             <div className="header-container">
                 <div className="header-top">
                     <img src={logo} />
-                    <button className="Login-btn">Login</button>
+                    <button
+                        className="Login-btn"
+                        onClick={() => {
+                            this.props.handleDisplay("block");
+                        }}
+                    >
+                        Login
+                    </button>
                 </div>
                 <div className="header-content">
                     <h1>See what's next</h1>
