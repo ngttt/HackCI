@@ -3,7 +3,7 @@ import "antd/dist/antd.css";
 import { Row, Col, Divider } from "antd";
 import { StarOutlined } from "@ant-design/icons";
 import { Card } from "antd";
-import { Pagination } from "antd";
+// import { Pagination } from "antd";
 
 const { Meta } = Card;
 

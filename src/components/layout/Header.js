@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {NavLink, Router} from 'react-router-dom';
-import logo from "./logo-netflix.png";
-import style from "./App.css";
+import logo from "../imgs/logo-netflix.png";
 
 export default class Header extends Component {
     render() {
@@ -9,7 +8,7 @@ export default class Header extends Component {
             <div className="header-container">
                 <div className="header-top">
                     <img src={logo}/>
-                    <button className="Login-btn">Login</button>
+                    <button className="Login-btn" onClick={() => { this.props.handleDisplay("block") }}>Login</button>
                 </div>
                 <div className="header-content">
                     <h1>See what's next</h1>
