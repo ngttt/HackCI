@@ -7,43 +7,47 @@ import { Card } from "antd";
 const { Meta } = Card;
 
 export default class MoviesRating extends Component {
-  renderMoviesRating = () => {
-    if (this.props.moviesRating.results) {
-      const { results } = this.props.moviesRating;
-      return results.map((e) => {
-        const urlImg = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${e.poster_path}`;
-        const title = e.title;
+    renderMoviesRating = () => {
+        if (this.props.moviesRating.results) {
+            const { results } = this.props.moviesRating;
+            return results.map((e) => {
+                const urlImg = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${e.poster_path}`;
+                const title = e.title;
+                return (
+                    <React.Fragment key={e.title}>
+                        <Col
+                            className="gutter-row"
+                            span={this.props.spanNumber}
+                        >
+                            <div>
+                                <Card
+                                    hoverable
+                                    cover={<img alt="example" src={urlImg} />}
+                                >
+                                    <Meta title={title} />
+                                    <div>
+                                        <StarOutlined twoToneColor="#eb2f96" />
+                                        <span>number</span>
+                                    </div>
+                                </Card>
+                            </div>
+                        </Col>
+                    </React.Fragment>
+                );
+            });
+        }
+    };
+    render() {
         return (
-          <React.Fragment>
-            <Col className="gutter-row" span={this.props.spanNumber}>
-              <div>
-                <Card hoverable cover={<img alt="example" src={urlImg} />}>
-                  <Meta title={title} />
-                  <div>
-                    <StarOutlined twoToneColor="#eb2f96" />
-                    <span>number</span>
-                  </div>
-                </Card>
-              </div>
-            </Col>
-          </React.Fragment>
+            <div className="center">
+                <Divider
+                    orientation="left"
+                    style={{ color: "#333", fontWeight: "normal", padding: 0 }}
+                >
+                    <h2 style={{ color: "#fff" }}>{this.props.genre_id}</h2>
+                </Divider>
+                <Row gutter={[14, 12]}>{this.renderMoviesRating()}</Row>
+            </div>
         );
-      });
     }
-  };
-  render() {
-    return (
-      <React.Fragment>
-        <Divider
-          orientation="left"
-          style={{ color: "#333", fontWeight: "normal", padding: 0 }}
-        >
-          <p>{this.props.genre_id}</p>
-        </Divider>
-        <Row gutter={[4, 6]} justify="space-around">
-          {this.renderMoviesRating()}
-        </Row>
-      </React.Fragment>
-    );
-  }
 }
