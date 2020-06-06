@@ -4,6 +4,7 @@ import Header from "./components/layout/Header";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import NavigationBar from "./components/navbar/NavigationBar";
+import MovieList from "./components/movieList/MovieList";
 
 class App extends Component {
     constructor() {
@@ -32,7 +33,7 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
-                    <NavigationBar />
+                    {/* <NavigationBar />
                     <Header
                         user={this.state.user}
                         handleDisplay={this.handleDisplay}
@@ -48,9 +49,10 @@ class App extends Component {
                                 setUser={this.setUser}
                             />
                         )}
-                    />
+                    /> */}
                     {/* <Route path="/movies/:genre" component={} /> */}
                     {/* <Route path="/detail/:id" component={DetailPage} /> */}
+                    <MovieList/>
                 </div>
             </BrowserRouter>
         );
