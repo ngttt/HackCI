@@ -32,7 +32,7 @@ export default class NavigationBar extends Component {
                             title-color="white"
                             id="basic-nav-dropdown"
                         >
-                            <NavDropdown.Item href="/movies/actions">
+                            <NavDropdown.Item href="/movies/action">
                                 Hành động
                             </NavDropdown.Item>
                             <NavDropdown.Item href="/movies/romance">
