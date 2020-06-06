@@ -63,6 +63,9 @@ class SignUpForm extends Component {
                 this.setState({
                     error,
                 });
+            } else {
+                this.props.setUser(res.user);
+                this.props.handleDisplay("none");
             }
         } else {
             this.setState({
@@ -126,10 +129,15 @@ class SignUpForm extends Component {
                     <div className="FormField">
                         <button className="FormField__Button mr-20">
                             Sign Up
-                        </button>{" "}
-                        <Link to="/sign-in" className="FormField__Link">
+                        </button>
+                        <div
+                            className="FormField__Link"
+                            onClick={() => {
+                                this.props.changeAuthForm(false);
+                            }}
+                        >
                             I'm already member
-                        </Link>
+                        </div>
                     </div>
                 </form>
             </div>

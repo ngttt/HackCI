@@ -11,11 +11,15 @@ const login = async (userObj) => {
         const db = firebase.firestore();
 
         const doc = await db.collection("users").doc(res.user.uid).get();
-        const userInfo = doc.data();
+        const user = doc.data();
 
         return {
             isSuccess: true,
-            userInfo,
+            user: {
+                ...user,
+                email,
+                password,
+            },
         };
     } catch (error) {
         return {
@@ -33,13 +37,15 @@ const signup = async (newUserObj) => {
             .createUserWithEmailAndPassword(email, password);
 
         const db = firebase.firestore();
-
-        await db.collection("users").doc(res.user.uid).set({
+        const doc = await db.collection("users").doc(res.user.uid).set({
             name,
         });
 
+        const user = { ...newUserObj };
+
         return {
             isSuccess: true,
+            user,
         };
     } catch (error) {
         return {
