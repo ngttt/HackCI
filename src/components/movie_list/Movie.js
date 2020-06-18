@@ -26,13 +26,12 @@ function Movie({ movies, match, history }) {
                     return (
                         <Col className="gutter-row" span={6} key={movie.id}>
                             <div>
-                                hello
                                 <Card
                                     hoverable
                                     cover={
                                         <img
                                             alt="example"
-                                            src={endpoint.backdrop(
+                                            src={endpoint.getImage(
                                                 movie.backdrop_path
                                             )}
                                         />
