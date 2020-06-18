@@ -1,59 +1,67 @@
-import React, { Component } from "react";
+import React from "react";
 import "./index.css";
 import Header from "./components/layout/Header";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import Home from "./components/pages/Home";
-import NavigationBar from "./components/navbar/NavigationBar";
-import Footer from "./components/footer/Footer";
-import MovieList from "./components/movieList/MovieList";
+import NavigationBar from "./components/layout/NavigationBar";
 import DetailPage from "./components/detail/Detail";
+import MovieList from "./components/movie_list/MovieList";
+import { useState } from "react";
 
-class App extends Component {
-  constructor() {
-    super();
+function App({ history }) {
+    const [user, setUser] = useState({});
+    const [display, setDisplay] = useState("none");
+    const [searchString, setSearchString] = useState("");
 
-    this.state = {
-      user: {},
-      display: "none",
+    const handleUserChange = (userInfo) => {
+        setUser(userInfo);
     };
-  }
 
-  setUser = (userInfo) => {
-    this.setState({
-      user: userInfo,
-    });
-  };
+    const handleDisplay = (display) => {
+        setDisplay(display);
+    };
 
-  handleDisplay = (display) => {
-    this.setState({
-      display,
-    });
-  };
+    const handleSearchChange = (e) => {
+        setSearchString(e.target.value);
+    };
 
-  render() {
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        console.log("searchString", searchString);
+        if (searchString === "") {
+            history.push("/");
+        }
+
+        history.push({
+            pathname: "/",
+            search: `?query=${searchString}`,
+        });
+    };
+
     return (
-      <BrowserRouter>
         <div className="App">
-          <NavigationBar />
-          <Header user={this.state.user} handleDisplay={this.handleDisplay} />
-          <Route
-            exact
-            path={["/", "/home"]}
-            render={(routeProps) => (
-              <Home
-                {...routeProps}
-                display={this.state.display}
-                handleDisplay={this.handleDisplay}
-                setUser={this.setUser}
-              />
-            )}
-          />
-          <Route path="/movies/:genre" component={MovieList} />
-          <Route path="/detail/:id" component={DetailPage} />
+            <NavigationBar
+                searchString={searchString}
+                handleSearchChange={handleSearchChange}
+                handleSearchSubmit={handleSearchSubmit}
+            />
+            <Header user={user} handleDisplay={handleDisplay} />
+            <Route
+                exact
+                path={["/", "/home"]}
+                render={(routeProps) => (
+                    <Home
+                        {...routeProps}
+                        display={display}
+                        handleDisplay={handleDisplay}
+                        setUser={handleUserChange}
+                    />
+                )}
+            />
+            <Route path="/movies/:genre" component={MovieList} />
+            <Route path="/detail/:id" component={DetailPage} />
         </div>
-      </BrowserRouter>
     );
-  }
 }
 
-export default App;
+export default withRouter(App);

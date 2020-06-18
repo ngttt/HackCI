@@ -5,7 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import fbConfig from "./config/fbConfig";
 import firebase from "firebase";
-import Detail from "./components/detail/Detail";
+import { BrowserRouter } from "react-router-dom";
 
 firebase.initializeApp(fbConfig);
 
@@ -13,7 +13,9 @@ firebase.firestore().enablePersistence();
 
 ReactDOM.render(
     <React.StrictMode>
-        <App/>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")
 );

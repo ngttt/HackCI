@@ -1,20 +1,54 @@
-import React, { Component } from "react";
-import List from "../List";
+import React, { useEffect, useState } from "react";
+import List from "./List";
 import AuthModal from "../auth/AuthModal";
+import queryString from "query-string";
+import Axios from "axios";
+import { endpoint } from "../../config/apiConfig";
+import MoviesRating from "./MoviesRating";
 
-class Home extends Component {
-  render() {
+function Home({ display, handleDisplay, setUser, location }) {
+    const [movieList, setMovieList] = useState({});
+
+    useEffect(() => {
+        const query = queryString.parse(location.search);
+
+        const fetchData = async (query) => {
+            try {
+                const res = await Axios.get(endpoint.search(query));
+
+                const { data } = res;
+
+                if (data.results) {
+                    setMovieList(data);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        if (query.query) {
+            fetchData(query.query);
+        }
+    }, [location.search]);
+
     return (
-      <div>
-        <AuthModal
-          display={this.props.display}
-          handleDisplay={this.props.handleDisplay}
-          setUser={this.props.setUser}
-        />
-        <List genre="Phim mới nhất" />
-      </div>
+        <div>
+            <AuthModal
+                display={display}
+                handleDisplay={handleDisplay}
+                setUser={setUser}
+            />
+            {location.search ? (
+                <MoviesRating
+                    genre_id="Kết quả tìm kiếm"
+                    spanNumber={6}
+                    moviesRating={movieList}
+                />
+            ) : (
+                <List genre="Phim mới nhất" />
+            )}
+        </div>
     );
-  }
 }
 
 export default Home;

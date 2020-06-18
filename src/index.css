@@ -513,11 +513,10 @@ div.ant-row {
     border-bottom: solid white 1px;
 }
 /* css cho phần details */
-.rmdb-movieinfo {
+.movieinfo-page {
     background-size: cover !important;
     background-position: center !important;
     width: 100%;
-    height: 600px;
     padding: 40px 20px;
     box-sizing: border-box;
     animation: animateMovieinfo 1s;
@@ -532,24 +531,32 @@ div.ant-row {
     }
 }
 
-.rmdb-movieinfo-content {
-    max-width: 1280px;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
+.movieinfo-content-container {
+    display: flex;
+    flex-flow: row;
+    padding: 0em 2em;
+}
+
+.movieinfo-thumb {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.movieinfo-thumb img {
+    width: 25em;
+    height: auto;
+}
+
+.movieinfo-content {
     background: rgb(0, 0, 0, 0.7);
-    position: relative;
+    padding: 2.5em;
 }
 
-.rmdb-movieinfo-thumb {
-    width: 350px;
-    height: 100%;
-    overflow: hidden;
-    position: absolute;
-    left: 0px;
+.movieinfo-content > * {
+    margin: 1em 0em;
 }
 
-.rmdb-movieinfo-text {
+.movieinfo-text {
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
     width: auto;
@@ -557,8 +564,6 @@ div.ant-row {
     color: #fff;
     overflow: hidden;
     box-sizing: border-box;
-    position: absolute;
-    left: 360px;
 }
 
 .rmdb-movieinfo-text h1 {
@@ -577,6 +582,17 @@ div.ant-row {
     font-family: "Abel", sans-serif;
     font-size: 18px;
     line-height: 26px;
+}
+
+.imdb-rating {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+}
+
+.voting-meter {
+    text-align: right;
+    margin-right: 10em;
 }
 
 .rmdb-rating {
@@ -622,13 +638,28 @@ meter::-webkit-meter-even-less-good-value {
     width: 60%;
 }
 
-.rmdb-movieinfo-actor {
-    margin-left: 100px;
+.movieinfo-actor-container {
+    margin: 3em 2em;
 }
 
-.rmdb-movieinfo-actor h2 {
-    margin-left: 20px;
+.actor-container {
+    cursor: pointer;
 }
+
+.actor-container:hover {
+    box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+.actor-image-thumbnail {
+    padding: 8px;
+}
+
+.actor-image-thumbnail img {
+    width: 100%;
+    border-radius: 4px;
+}
+
 /* css cho phần details */
 
 .nav-bar ul {

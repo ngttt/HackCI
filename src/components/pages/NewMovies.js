@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import "antd/dist/antd.css";
-import { Rate, Card, Divider, Col } from "antd";
+import { Rate, Card, Divider } from "antd";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { StarOutlined } from "@ant-design/icons";
+import { withRouter } from "react-router-dom";
 
 const { Meta } = Card;
 
-export default class WatchedMovies extends Component {
+class NewMovies extends Component {
+    changeRoute = (id) => {
+        this.props.history.push(`/detail/${id}`);
+    };
+
     renderMovie = () => {
         if (this.props.watchedMovies.results) {
             const { results } = this.props.watchedMovies;
@@ -16,48 +20,45 @@ export default class WatchedMovies extends Component {
                 const urlImg = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${e.poster_path}`;
                 const title = e.title;
                 return (
-                    <React.Fragment key={e.title}>
-                        {/* <Col className="gutter-row" span={this.props.spanNumber}> */}
-                        <div>
-                            <Card
-                                className="card"
-                                hoverable
-                                cover={<img alt="example" src={urlImg} />}
+                    <Card
+                        className="card"
+                        hoverable
+                        cover={<img alt="example" src={urlImg} />}
+                        onClick={() => {
+                            this.changeRoute(e.id);
+                        }}
+                        key={e.id}
+                    >
+                        <div className="content">
+                            <Meta title={title} />
+                            <span>
+                                <Rate
+                                    disabled
+                                    defaultValue={1}
+                                    style={{ zIndex: -999 }}
+                                />
+                            </span>
+                            <b
+                                style={{
+                                    marginLeft: "-20px",
+                                    zIndex: 9999,
+                                }}
                             >
-                                <div className="content">
-                                    <Meta title={title} />
-                                    <span>
-                                        <Rate
-                                            disabled
-                                            defaultValue={1}
-                                            style={{ zIndex: -999 }}
-                                        />
-                                    </span>
-                                    <b
-                                        style={{
-                                            marginLeft: "-20px",
-                                            zIndex: 9999,
-                                        }}
-                                    >
-                                        {e.vote_average}/10
-                                    </b>
-                                    <br />
-                                    <span>
-                                        <b>Ngày khởi chiếu:</b> <br />
-                                        <Meta title={e.release_date} />
-                                    </span>
-                                </div>
-                            </Card>
+                                {e.vote_average}/10
+                            </b>
+                            <br />
+                            <span>
+                                <b>Ngày khởi chiếu:</b> <br />
+                                <Meta title={e.release_date} />
+                            </span>
                         </div>
-                        {/* </Col> */}
-                    </React.Fragment>
+                    </Card>
                 );
             });
         }
     };
     render() {
         const settings = {
-            // dots: true,
             infinite: false,
             speed: 300,
             slidesToShow: 4,
@@ -117,3 +118,5 @@ export default class WatchedMovies extends Component {
         );
     }
 }
+
+export default withRouter(NewMovies);

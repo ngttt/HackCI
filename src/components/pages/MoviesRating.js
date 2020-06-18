@@ -4,6 +4,7 @@ import { Row, Col, Divider } from "antd";
 import { StarOutlined } from "@ant-design/icons";
 import { Card } from "antd";
 import { withRouter } from "react-router-dom";
+import { endpoint } from "../../config/apiConfig";
 
 const { Meta } = Card;
 
@@ -16,10 +17,13 @@ class MoviesRating extends Component {
         if (this.props.moviesRating.results) {
             const { results } = this.props.moviesRating;
             return results.map((e) => {
-                const urlImg = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${e.poster_path}`;
+                if (!e.poster_path) return null;
+
+                const urlImg = endpoint.getImage(e.poster_path);
                 const title = e.title;
+
                 return (
-                    <React.Fragment key={title}>
+                    <React.Fragment key={e.id}>
                         <Col
                             className="gutter-row"
                             span={this.props.spanNumber}
@@ -35,7 +39,7 @@ class MoviesRating extends Component {
                                     <Meta title={title} />
                                     <div>
                                         <StarOutlined twoToneColor="#eb2f96" />
-                                        <span>number</span>
+                                        <span> {e.vote_average} </span>
                                     </div>
                                 </Card>
                             </div>
@@ -45,6 +49,7 @@ class MoviesRating extends Component {
             });
         }
     };
+
     render() {
         return (
             <div className="center">

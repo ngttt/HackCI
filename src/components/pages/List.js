@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import ListItem from "./ListItem";
-import { Layout } from "antd";
-import { Row, Col, Divider, Table } from "antd";
-import WatchedMovies from "./WatchedMovies";
+import NewMovies from "./NewMovies";
 import MoviesRating from "./MoviesRating";
 import UpcomingMovie from "./UpcomingMovie";
-import API_KEY from "../config/apiConfig";
+import API_KEY from "../../config/apiConfig";
 
 export default class List extends Component {
     constructor(props) {
@@ -34,13 +31,6 @@ export default class List extends Component {
             console.log(error);
         }
     };
-
-    // getActionMovie = async () =>{
-    //   try {
-    //       const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${themovie_api}&language=vi-VN`;
-
-    //   }
-    // }
 
     getMoviesRating = async () => {
         try {
@@ -71,7 +61,7 @@ export default class List extends Component {
     render() {
         return (
             <div>
-                <WatchedMovies
+                <NewMovies
                     genre_id={this.props.genre}
                     watchedMovies={this.state.listMovies}
                 />
